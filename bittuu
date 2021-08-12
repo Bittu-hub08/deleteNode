@@ -1,0 +1,15 @@
+ListNode* Solution::deleteDuplicates(ListNode* head) {
+    if(head==NULL)return head;
+      ListNode *curr = head;
+    ListNode *temp = head;
+    while(curr !=NULL && curr->next!=NULL){
+        while(temp!=NULL && temp->next!=NULL && temp->val == temp->next->val)
+        {
+            temp=temp->next;
+        }
+        temp= temp->next;
+        curr->next=temp;
+        curr = temp;
+    }
+    return head;
+}
